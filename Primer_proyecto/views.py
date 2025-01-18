@@ -1,7 +1,9 @@
 import datetime
 from django.template import Template,Context
-
 from django.http import HttpResponse
+from django.template import loader
+from django.template.loader import get_template
+from django.shortcuts import render
 
 class Persona:
     def __init__(self,nombre,apellido):
@@ -12,12 +14,7 @@ def saludo(request):
     #primera vista
     p1 = Persona('Juan','Pedro' )
 
-    doc_externo = open("C:/Users/Admin/PycharmProjects/Primer_proyecto/templates/platilla.html")
-    plt =Template(doc_externo.read())
-    doc_externo.close()
-    ctx = Context({"persona":p1})
-    documento = plt.render(ctx)
-    return HttpResponse(documento)
+    return render(request,"platilla.html",{'persona':p1})
 
 def despedida(request):
     return HttpResponse("<h1>Hasta luego</h1>")
@@ -34,3 +31,5 @@ def calcula_edad(request, year):
     documento = "<h1>En el año %s tendras %s años</h1>" %(year, edad_futura)
     return HttpResponse(documento)
 
+def herencia (request):
+    return render(request, "pruebaHerencia.html")
