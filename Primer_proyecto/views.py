@@ -3,13 +3,19 @@ from django.template import Template,Context
 
 from django.http import HttpResponse
 
+class Persona:
+    def __init__(self,nombre,apellido):
+        self.nombre = nombre
+        self.apellido = apellido
+
 def saludo(request):
     #primera vista
-    nombre = "Adrian"
+    p1 = Persona('Juan','Pedro' )
+
     doc_externo = open("C:/Users/Admin/PycharmProjects/Primer_proyecto/templates/platilla.html")
     plt =Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context({"nombre_persona":nombre})
+    ctx = Context({"persona":p1})
     documento = plt.render(ctx)
     return HttpResponse(documento)
 
