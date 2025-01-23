@@ -126,12 +126,11 @@ p {
 @media (min-width: 992px) {
   .intro .intro-img {
     width: 75%;
-    float: left;
+    float: right;
   }
   .intro .intro-text {
     left: 600;
     width: 60%;
-    margin-top: 3rem;
     background-color: rgba(24, 64, 8);
     color: cornsilk;
     position: absolute;
