@@ -11,7 +11,5 @@ def shop(request):
     return render(request, "proyectoWebApp/Tienda.html")
 
 
-def contact(request):
-    return render(request, "proyectoWebApp/Contacto.html")
 
 
