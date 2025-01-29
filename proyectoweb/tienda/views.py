@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 def shop(request):
-    return render(request, "proyectoWebApp/templates/tienda/Tienda.html")
+
+    productos = Producto.objects.all()
+
+    return render(request, "tienda/tienda.html", {"productos": productos})
